@@ -4,8 +4,8 @@ var labelMonth = page.GetItem('month');
 var labelYear = page.GetItem('year');
 var buttonNext = page.GetItem('next');
 var buttonPrev = page.GetItem('prev');
-var defaultColorDay = 0x000000FF;
-var defaultColorCurrentDay = 0x5fb177ff;
+var defaultColorDay = 0xFFFFFFFF;
+var defaultColorCurrentDay = 0x1A89F5FF;
 var bSave = page.GetItem('Save');
 var bClose = page.GetItem('Close');
 var BCancel = page.GetItem('Cancel');
@@ -201,7 +201,7 @@ IR.AddListener(IR.EVENT_ITEM_RELEASE, buttonNext, function() {
 
 // Close Calndar
 IR.AddListener(IR.EVENT_ITEM_RELEASE, BCancel, function() {
-  IR.GetDevice('iRidi Server').Set('equipmentLastError', 'update');
+  IR.GetDevice('iRidium Server').Set('equipmentLastError', 'update');
   resetVariableDateSelect();
   setTextForTopAreaCalendar();
   currentMonth = monthNow;
@@ -214,7 +214,7 @@ IR.AddListener(IR.EVENT_ITEM_RELEASE, BCancel, function() {
 // formate date yyyy-mm-dd
 IR.AddListener(IR.EVENT_ITEM_RELEASE, bSave, function() {
   var str = getSelectedDatesString();
-  IR.GetDevice('iRidi Server').Set('equipmentBetweenError', JSON.stringify(str));
+  IR.GetDevice('iRidium Server').Set('equipmentBetweenError', JSON.stringify(str));
 });
 
 IR.AddListener(IR.EVENT_ITEM_RELEASE, bClose, function() {
@@ -224,7 +224,7 @@ IR.AddListener(IR.EVENT_ITEM_RELEASE, bClose, function() {
   year = yearNow;
   yearChange();
   monthChange();
-  IR.GetDevice('iRidi Server').Set('equipmentLastError', 'update');
+  IR.GetDevice('iRidium Server').Set('equipmentLastError', 'update');
 });
 
 // Button Prev

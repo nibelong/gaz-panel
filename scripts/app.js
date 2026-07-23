@@ -28,16 +28,16 @@ IR.AddListener(IR.EVENT_START, 0, function () {
 
   yearChange();
   monthChange();
-  IR.GetDevice('iRidi Server').Set('equipmentLastError', 'update');
+  IR.GetDevice('iRidium Server').Set('equipmentLastError', 'update');
 });
 
 
 IR.AddListener(IR.EVENT_ONLINE, IR.GetDevice('iRidi Server'), function() {
-  IR.GetDevice('iRidi Server').Set('equipmentLastError', 'update');
+  IR.GetDevice('iRidium Server').Set('equipmentLastError', 'update');
 });
 
 
-IR.AddListener(IR.EVENT_TAG_CHANGE, IR.GetDevice('iRidi Server'), function(name, value) {
+IR.AddListener(IR.EVENT_TAG_CHANGE, IR.GetDevice('iRidium Server'), function(name, value) {
   if (name === 'notificationMassageError') {
     showNotification(value);
   } else if (name === 'equipmentError') {

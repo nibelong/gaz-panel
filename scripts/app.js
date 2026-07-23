@@ -32,7 +32,8 @@ IR.AddListener(IR.EVENT_START, 0, function () {
 });
 
 
-IR.AddListener(IR.EVENT_ONLINE, IR.GetDevice('iRidi Server'), function() {
+IR.AddListener(IR.EVENT_ONLINE, IR.GetDevice('iRidium Server'), function() {
+  IR.Log('online')
   IR.GetDevice('iRidium Server').Set('equipmentLastError', 'update');
 });
 
